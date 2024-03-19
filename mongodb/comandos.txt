@@ -1,0 +1,30 @@
+db.getCollection('user').find({})
+
+show dbs
+
+use "seu_banco_de_dados"
+
+show collections
+
+db.createCollection("item")
+
+db.item.find()
+
+db.item.insert({
+"name": "Item 1",
+"price": 10.0
+})
+
+db.item.insertMany([{
+"name": "Item 77",
+"price": 10.0
+},{
+"name": "Item 15",
+"price": 15.0
+}])
+
+db.item.find().limit(1)
+
+db.item.find({name: "Item 10"})
+
+db.item.find({name: "Item 10"}).count()
