@@ -96,7 +96,20 @@ select author_id from books where title like "%casa"
 select * from authors where author_id = (
 select author_id from books where title = "A casa")
 
+---
 
+create table signups (
+ username varchar(20),
+ email varchar (200)
+)
+
+insert into signups (username, email) values ( "Lucas", '')
+insert into signups (username, email) values ( "Jose", null)
+
+
+
+select * from signups
+where email is not null 
 
 
 
