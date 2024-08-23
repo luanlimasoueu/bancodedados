@@ -72,5 +72,32 @@ select * from starck_user;
 
 SELECT * FROM stack WHERE id BETWEEN 2 and 4;
 
+create table books (
+title varchar(20),
+author_id int
+)
+
+create table authors (
+first_name varchar (20),
+second_name varchar(20),
+author_id int
+)
+
+insert into authors (author_id , first_name, second_name) values (1, "Lucas", "Nunes") , (2, "Jessica", "Maria")
+
+select * from authors
+
+insert into books (author_id , title ) values (1 , "A casa") , (2, "O soão")
+
+select * from books
+
+select author_id from books where title like "%casa"
+
+select * from authors where author_id = (
+select author_id from books where title = "A casa")
+
+
+
+
 
 
