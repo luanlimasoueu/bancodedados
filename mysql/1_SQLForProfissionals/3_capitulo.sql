@@ -58,3 +58,19 @@ SELECT st.name,
 st.percentage,
 IF(st.percentage >= 35, 'Pass', 'Fail') AS `Remark`
 FROM student AS st ;
+
+
+CREATE TABLE starck_user
+( 
+id int AUTO_INCREMENT PRIMARY KEY,
+ username varchar(20)
+);
+
+insert into starck_user (username) values ("admin"), ("root"), ("toor"), ("mysql");
+
+select * from starck_user;
+
+SELECT * FROM stack WHERE id BETWEEN 2 and 4;
+
+
+
