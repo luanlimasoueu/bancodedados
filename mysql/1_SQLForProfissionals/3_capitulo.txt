@@ -122,5 +122,3 @@ select * from users_date
 
 select * from users_date
 where userdata >= '2017-03-01' and userdata <='2017-03-01' + interval 3 month
-
-
