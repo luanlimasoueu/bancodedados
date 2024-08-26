@@ -41,6 +41,3 @@ password VARCHAR(30)
 CREATE TABLE stack_2 AS SELECT * FROM stack_1;
 
 SELECT * FROM stack_2
-
-
-
