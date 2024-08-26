@@ -1,0 +1,24 @@
+DELIMITER $$
+DROP PROCEDURE IF EXISTS sp_nested_loop$$
+CREATE PROCEDURE sp_nested_loop(IN i INT, IN j INT, OUT x INT, OUT y INT, INOUT z INT)
+BEGIN
+DECLARE a INTEGER DEFAULT 0;
+DECLARE b INTEGER DEFAULT 0;
+DECLARE c INTEGER DEFAULT 0;
+	WHILE a < i DO
+		WHILE b < j DO
+			SET c = c + 1;
+			SET b = b + 1;
+		END WHILE;
+		SET a = a + 1;
+		SET b = 0;
+	END WHILE;
+	SET x = a, y = c;
+	SET z = x + y + z;
+END $$
+DELIMITER ;
+
+
+SET @z = 30;
+call sp_nested_loop(10, 20, @x, @y, @z);
+SELECT @x, @y, @z;
