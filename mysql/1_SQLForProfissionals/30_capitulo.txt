@@ -1,19 +1,25 @@
-DELIMITER $$
-DROP PROCEDURE IF EXISTS sp_nested_loop$$
-CREATE PROCEDURE sp_nested_loop(IN i INT, IN j INT, OUT x INT, OUT y INT, INOUT z INT)
+DROP  FUNCTION functionname;
+
+DELIMITER ||
+CREATE FUNCTION functionname()
+RETURNS INT
+DETERMINISTIC -- Here
 BEGIN
-DECLARE a INTEGER DEFAULT 0;
-DECLARE b INTEGER DEFAULT 0;
-DECLARE c INTEGER DEFAULT 0;
-	WHILE a < i DO
-		WHILE b < j DO
-			SET c = c + 1;
-			SET b = b + 1;
-		END WHILE;
-		SET a = a + 1;
-		SET b = 0;
-	END WHILE;
-	SET x = a, y = c;
-	SET z = x + y + z;
-END $$
+RETURN 12;
+END;
+||
 DELIMITER ;
+
+SELECT functionname();
+
+
+DELIMITER $$
+CREATE FUNCTION add_2 ( my_arg INT )
+RETURNS INT
+DETERMINISTIC -- Here
+BEGIN
+RETURN (my_arg + 2);
+END;
+$$
+DELIMITER ;
+SELECT add_2(12);
