@@ -1,0 +1,9 @@
+CREATE TEMPORARY TABLE tempTable1(
+id INT NOT NULL AUTO_INCREMENT,
+title VARCHAR(100) NOT NULL,
+PRIMARY KEY ( id )
+);
+
+select * from tempTable1;
+
+DROP TEMPORARY TABLE IF EXISTS tempTable1;
