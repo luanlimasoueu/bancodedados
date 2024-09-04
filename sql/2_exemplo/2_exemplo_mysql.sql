@@ -49,3 +49,36 @@ UNION
 SELECT clientes.nome, pedidos.produto, pedidos.quantidade
 FROM clientes
 RIGHT JOIN pedidos ON clientes.cliente_id = pedidos.cliente_id;
+
+-- inner join
+select * from
+clientes a
+inner join pedidos b
+on a.cliente_id = b.cliente_id;
+
+-- left join
+select * from
+clientes a
+left join pedidos b
+on a.cliente_id = b.cliente_id;
+
+-- left join
+select * from
+clientes a
+left join pedidos b
+on a.cliente_id = b.cliente_id
+where  b.cliente_id is null;
+
+-- right join
+select * from
+clientes a
+right join pedidos b
+on a.cliente_id = b.cliente_id;
+
+-- right join
+select * from
+clientes a
+right join pedidos b
+on a.cliente_id = b.cliente_id
+where  b.cliente_id is null;
+
