@@ -20,4 +20,29 @@ and quantidade = 10
 
 
 create table costumerid(
+customerid int,
+productid int,
+quantity int,
+price float
 )
+
+insert into costumerid (customerid, productid, quantity, price)
+values
+( 1, 2, 5, 100 ),
+( 1, 3, 2, 200),
+( 1, 4, 1, 500),
+( 2, 1, 4, 50), 
+(3, 5, 6, 700)
+
+
+select customerid
+from costumerid 
+where productid in (2,3)
+group by customerid
+having count(distinct productID) = 2
+
+select customerId
+from costumerid 
+group by customerId
+having sum(case when productID = 2 then 1 else 0 end) > 0
+and sum(case when productID = 3 then 1 else 0 end) > 0

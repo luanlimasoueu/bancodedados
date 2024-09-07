@@ -1,0 +1,50 @@
+use sqlnotesweb;
+
+CREATE TABLE A (
+X varchar(255) PRIMARY key
+);
+
+CREATE TABLE B (
+Y varchar(255) PRIMARY KEY
+);
+
+INSERT INTO A VALUES
+('Amy'),
+('John'),
+('Lisa'),
+('Marco'),
+('Phil');
+INSERT INTO B VALUES
+('Lisa'),
+('Marco'),
+('Phil'),
+('Tim'),
+('Vincent');
+
+
+select * from A
+select * from B
+
+SELECT * FROM A JOIN B ON X = Y;
+
+SELECT * FROM A inner JOIN B ON X = Y;
+
+SELECT * FROM A LEFT JOIN B ON X = Y;
+
+SELECT * FROM A RIGHT JOIN B ON X = Y;
+
+SELECT * FROM A FULL JOIN B ON X = Y;
+
+SELECT * FROM A WHERE X IN (SELECT Y FROM B);
+
+SELECT * FROM B WHERE Y IN (SELECT X FROM A);
+
+SELECT * FROM A WHERE X NOT IN (SELECT Y FROM B);
+
+SELECT * FROM B WHERE Y NOT IN (SELECT X FROM A);
+
+
+
+
+
+
