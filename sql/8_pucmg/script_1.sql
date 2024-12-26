@@ -48,4 +48,19 @@ alter table Dependente add constraint  pk_dep primary key (MatEmp)
 
 #
 
-insert into Empregado
+insert into Empregado (MatEmp ,NomEmp ,EndEmp ,CidEmp)
+	values(2,'Mario', 'Rua 4', 'Belo Horizonte')
+	
+	
+insert into Dependente (NomDep ,DatNasc ,MatEmp)
+	values ('Carlos Ramos', '2023-10-01', 1)
+
+select * from Dependente
+
+select * from Empregado 
+
+insert into Dependente (NomDep ,DatNasc ,MatEmp)
+	values ('Mario', '2023-10-01', 3)
+	
+	
+select * from Dependente
