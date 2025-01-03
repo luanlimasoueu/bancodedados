@@ -1,0 +1,6 @@
+#1
+https://www.geeksforgeeks.org/window-functions-in-sql/
+
+#3
+https://medium.com/lets-data/desvendando-o-poder-das-window-functions-em-sql-para-estudantes-de-ci%C3%AAncia-de-dados-71b65ec9962d
+
