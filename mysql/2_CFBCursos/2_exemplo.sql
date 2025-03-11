@@ -1,0 +1,44 @@
+USE CM3;
+
+DELIMITER $$
+CREATE PROCEDURE basico()
+BEGIN
+
+  DECLARE X VARCHAR (20);
+  SET X = 10;
+  SELECT X;
+  
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE basico_2()
+BEGIN
+
+  DECLARE X VARCHAR (20);
+  SET X = 9;
+  SELECT X;
+  
+END $$
+DELIMITER ;
+
+CALL basico_2();
+
+CALL basico();
+
+
+DELIMITER $$
+CREATE PROCEDURE basico_3 ( IN CURSO varchar ( 50))
+BEGIN
+
+  DECLARE X VARCHAR (20);
+  SET X = 10;
+  SELECT X, CURSO;
+  
+END $$
+DELIMITER ;
+
+
+CALL basico_3( 'SQL');
+
+#https://www.youtube.com/watch?v=lHE5i7sbhhU
