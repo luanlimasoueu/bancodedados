@@ -51,4 +51,19 @@ from emp
 where deptno = 10;
 
 
+select concat(ename, ' WORKS AS A ',job) as msg
+from emp
+where deptno=10
+
+
+select ename,sal,
+	case when sal <= 2000 then 'UNDERPAID'
+		 when sal >= 4000 then 'OVERPAID'
+		 else 'OK'
+	end as status
+from emp
+
+select *
+from emp limit 5
+
 
