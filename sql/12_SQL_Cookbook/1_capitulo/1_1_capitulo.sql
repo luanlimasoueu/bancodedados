@@ -67,3 +67,24 @@ select *
 from emp limit 5
 
 
+select *
+from emp
+where comm is null
+
+select 
+	case when comm is not null then comm
+	else 0
+end
+from emp
+
+
+select ename, job
+from emp
+where deptno in (10,20)
+
+
+select ename, job
+from emp
+where deptno in (10,20)
+and (ename like '%I%' or job like '%ER')
+
