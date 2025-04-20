@@ -8,11 +8,72 @@ union all
 from t1
 union all
 select dname, deptno
-from dept
+from dept;
 
 
 select deptno
 from emp
 union
 select deptno
+from dept;
+
+select e.ename, d.loc
+from emp e, dept d
+ where e.deptno = d.deptno
+and e.deptno = 10;
+
+
+select e.ename, d.loc,
+e.deptno as emp_deptno,
+d.deptno as dept_deptno
+from emp e, dept d
+where e.deptno = 10;
+
+select e.ename, d.loc,
+e.deptno as emp_deptno,
+d.deptno as dept_deptno
+from emp e, dept d
+where e.deptno = d.deptno
+and e.deptno = 10;
+
+select e.ename, d.loc
+from emp e inner join dept d
+on (e.deptno = d.deptno)
+where e.deptno = 10
+
+
+create view V_1
+as (
+select ename,job,sal
+from emp
+where job = 'CLERK'
+)
+
+select * from V_1
+
+select e.empno,e.ename,e.job,e.sal,e.deptno
+from emp e,  V_1 v
+where e.ename = v.ename
+and e.job = v.job
+and e.sal = v.sal
+
+
+select e.empno,e.ename,e.job,e.sal,e.deptno
+from emp e join V_1 v
+ on ( e.ename = v.ename
+and e.job = v.job
+and e.sal = v.sal )
+
+select deptno
 from dept
+where deptno not in (select deptno from emp)
+
+create table new_dept(deptno integer)
+insert into new_dept values (10)
+insert into new_dept values (50)
+insert into new_dept values (null)
+
+
+select *
+from dept
+where deptno not in (select deptno from new_dept)
