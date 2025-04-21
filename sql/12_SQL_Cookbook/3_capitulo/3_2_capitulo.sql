@@ -7,6 +7,12 @@ CREATE TABLE emp_bonus (
 );
 
 INSERT INTO emp_bonus (EMPNO, RECEIVED, TYPE) VALUES
-(7369, STR_TO_DATE('14-MAR-2005', '%d-%b-%Y'), 1),
-(7900, STR_TO_DATE('14-MAR-2005', '%d-%b-%Y'), 2),
-(7788, STR_TO_DATE('14-MAR-2005', '%d-%b-%Y'), 3);
+(7934, STR_TO_DATE('17-MAR-2005', '%d-%b-%Y'), 1),
+(7934, STR_TO_DATE('15-FEB-2005', '%d-%b-%Y'), 2),
+(7839, STR_TO_DATE('15-FEB-2005', '%d-%b-%Y'), 3),
+(7782, STR_TO_DATE('15-FEB-2005', '%d-%b-%Y'), 1);
+
+
+
+
+
