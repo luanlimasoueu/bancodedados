@@ -77,3 +77,43 @@ insert into new_dept values (null)
 select *
 from dept
 where deptno not in (select deptno from new_dept)
+
+
+select deptno
+from dept
+where deptno in ( 10,50,null );
+
+
+select d.deptno
+from dept d
+where not exists (
+select 1
+from emp e
+where d.deptno = e.deptno
+)
+
+select d.deptno
+from dept d
+where not exists (
+select 1
+from new_dept nd
+where d.deptno = nd.deptno
+)
+
+select d.*
+from dept d left outer join emp e
+on (d.deptno = e.deptno)
+where e.deptno is null
+
+select e.ename, e.deptno as emp_deptno, d.*
+from dept d left join emp e
+on (d.deptno = e.deptno)
+
+
+select e.ename, d.loc
+from emp e, dept d
+where e.deptno=d.deptno
+
+
+
+
