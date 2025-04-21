@@ -115,5 +115,18 @@ from emp e, dept d
 where e.deptno=d.deptno
 
 
+select * from emp;
+
+select * from dept;
+
+select e.ename, d.loc
+from emp e, dept d
+where e.deptno=d.deptno
+
+select e.ename, d.loc,eb.received
+from emp e, dept d, emp_bonus eb
+where e.deptno=d.deptno
+and e.empno=eb.empno
+
 
 

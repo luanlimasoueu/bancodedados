@@ -1,0 +1,12 @@
+use cookbook;
+
+CREATE TABLE emp_bonus (
+    EMPNO INT NOT NULL,
+    RECEIVED DATE NOT NULL,
+    TYPE INT NOT NULL
+);
+
+INSERT INTO emp_bonus (EMPNO, RECEIVED, TYPE) VALUES
+(7369, STR_TO_DATE('14-MAR-2005', '%d-%b-%Y'), 1),
+(7900, STR_TO_DATE('14-MAR-2005', '%d-%b-%Y'), 2),
+(7788, STR_TO_DATE('14-MAR-2005', '%d-%b-%Y'), 3);
