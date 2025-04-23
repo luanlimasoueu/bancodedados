@@ -36,3 +36,14 @@ as correct_cnt,
 length(replace('HELLO HELLO','LL',''))) as incorrect_cnt
 from t1
 
+
+select ename,
+replace(
+replace(
+replace(
+replace(
+replace(ename,'A',''),'E',''),'I',''),'O',''),'U','')
+as stripped1,
+sal,
+replace(sal,0,'') stripped2
+from emp
