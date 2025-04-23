@@ -32,3 +32,8 @@ select *
 from dept
 where 1 = 0
 
+
+select deptno,ename,sal
+from emp
+where deptno = 20
+order by 1,3
