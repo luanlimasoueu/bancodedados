@@ -114,6 +114,12 @@ select substr(substring_index(name, ' ',1),1,1) as a,
 substr(substring_index(name,' ',-1),1,1) as b
 from (select 'Stewie Griffin' as name from t1) x
 
+select concat_ws('.',
+substr(substring_index(name, ' ',1),1,1),
+substr(substring_index(name,' ',-1),1,1),
+'.' ) a
+from (select 'Stewie Griffin' as name from t1) x
+
 
 
 
