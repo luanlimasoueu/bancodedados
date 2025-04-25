@@ -121,5 +121,49 @@ substr(substring_index(name,' ',-1),1,1),
 from (select 'Stewie Griffin' as name from t1) x
 
 
+select ename
+from emp
+order by substr(ename,length(ename)-1,)
+
+select data, to_number(
+replace(
+translate(data,
+replace(
+translate(data,'0123456789','##########'),
+'#'),
+rpad('#',length(data),'#')),'#')) as tmp
+from V_2
+
+select deptno,
+group_concat(ename order by empno separator, ',') as emps
+from emp
+group by deptno
+
+select ename,sal,deptno
+from emp
+where empno in ( '7654,7698,7782,7788' )
+
+
+ select empno, ename, sal, deptno
+ from emp
+ where empno in
+ (
+ select substring_index(
+ substring_index(list.vals,',',iter.pos),',',-1) empno
+ from (select id pos from t10) as iter,
+ (select '7654,7698,7782,7788' as vals
+ from t1) list
+ where iter.pos <=
+ (length(list.vals)-length(replace(list.vals,',','')))+1
+ )
+ 
+select ename, group_concat(c order by c separator '')
+ from (
+ select ename, substr(a.ename,iter.pos,1) c
+ from emp a,
+ ( select id pos from t10 ) iter
+ where iter.pos <= length(a.ename)
+ ) x
+ group by ename
 
 
