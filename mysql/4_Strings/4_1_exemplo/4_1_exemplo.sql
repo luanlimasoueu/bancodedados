@@ -1,3 +1,5 @@
+use cookbook;
+
 #https://www.geeksforgeeks.org/sql-string-functions/
 
 #1. CONCAT()
