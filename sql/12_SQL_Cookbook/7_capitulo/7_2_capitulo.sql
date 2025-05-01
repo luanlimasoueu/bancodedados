@@ -15,14 +15,4 @@ select 5, 200, 'PY'  union all
 select 6, 50, 'PY' 
 )
 
-select ward_hd, allen_hd
-from (
-select hiredate as ward_hd
-from emp
-where ename = 'WARD'
-)x ,
-(
-select hiredate as allen_hd
-from emp
-where ename = 'ALLEN'
-) y
+
