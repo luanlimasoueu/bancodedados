@@ -84,3 +84,13 @@ order by comm desc
 
 select (sum(sal)-min(sal)-max(sal))/(count(*)-2)
 from emp
+
+
+create view V_4 (id,amt,trx)
+as
+select 1, 100, 'PR' from t1 union all
+select 2, 100, 'PR' from t1 union all
+select 3, 50, 'PY' from t1 union all
+select 4, 100, 'PR' from t1 union all
+select 5, 200, 'PY' from t1 union all
+select 6, 50, 'PY' from t1
