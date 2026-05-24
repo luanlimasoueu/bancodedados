@@ -147,4 +147,68 @@ select * from olist_order_reviews_dataset;
 --olist_order_reviews_dataset 
 
 
+SELECT 
+    -- category translation
+    t.product_category_name,
+    t.product_category_name_english,
+
+    -- geolocation
+    geo.geolocation_zip_code_prefix,
+    geo.geolocation_city,
+    geo.geolocation_state,
+    geo.geolocation_lat,
+    geo.geolocation_lng,
+
+    -- customers
+    c.customer_id,
+    c.customer_unique_id,
+    c.customer_city,
+    c.customer_state,
+
+    -- sellers
+    s.seller_id,
+    s.seller_city,
+    s.seller_state,
+
+    -- products
+    p.product_id,
+    p.product_category_name,
+    p.product_weight_g,
+    p.product_length_cm,
+
+    -- orders
+    o.order_id,
+    o.order_status,
+    o.order_purchase_timestamp,
+    o.order_estimated_delivery_date,
+
+    -- order items
+    i.order_item_id,
+    i.price,
+    i.freight_value,
+    i.shipping_limit_date,
+
+    -- payments
+    pay.payment_type,
+    pay.payment_installments,
+    pay.payment_value,
+
+    -- reviews
+    r.review_id,
+    r.review_score,
+    r.review_comment_title,
+    r.review_comment_message
+
+FROM product_category_name_translation t
+
+LEFT JOIN olist_products_dataset p        ON t.product_category_name     = p.product_category_name
+LEFT JOIN olist_order_items_dataset i     ON p.product_id                = i.product_id
+LEFT JOIN olist_orders_dataset o          ON i.order_id                  = o.order_id
+LEFT JOIN olist_order_customer_dataset c  ON o.customer_id               = c.customer_id
+LEFT JOIN olist_geolocation_dataset geo   ON c.customer_zip_code_prefix  = geo.geolocation_zip_code_prefix
+LEFT JOIN olist_sellers_dataset s         ON i.seller_id                 = s.seller_id
+LEFT JOIN olist_order_payments_dataset pay ON o.order_id                 = pay.order_id
+LEFT JOIN olist_order_reviews_dataset r   ON o.order_id                  = r.order_id
+
+LIMIT 100;
 
